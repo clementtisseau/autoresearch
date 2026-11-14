@@ -1,0 +1,13 @@
+diff --git a/train.py b/train.py
+index 88fc24e..1294a25 100644
+--- a/train.py
++++ b/train.py
+@@ -453,7 +453,7 @@ FINAL_LR_FRAC = 0.0     # final LR as fraction of initial
+ DEPTH = L.env_int("LADDER_DEPTH", 8)                          # number of transformer layers
+ DEVICE_BATCH_SIZE = L.env_int("LADDER_DEVICE_BATCH_SIZE", 128) # per-device batch size (reduce if OOM)
+ WIDTH = L.env_int("LADDER_WIDTH", 0)                          # 0 = depth * ASPECT_RATIO
+-SEED = L.env_int("LADDER_SEED", 42)
++SEED = L.env_int("LADDER_SEED", 42) + 95
+ FLOPS_BUDGET = L.env_float("LADDER_FLOPS", 0.0)               # 0 = default budget of 500M tokens
+ OUT = os.environ.get("LADDER_OUT", "")
+ 

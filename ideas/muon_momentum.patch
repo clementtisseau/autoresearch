@@ -1,0 +1,24 @@
+diff --git a/train.py b/train.py
+index 88fc24e..55b3cfc 100644
+--- a/train.py
++++ b/train.py
+@@ -261,7 +261,7 @@ class GPT(nn.Module):
+             group_params = [p for p in matrix_params if p.shape == shape]
+             param_groups.append(dict(
+                 kind='muon', params=group_params, lr=matrix_lr,
+-                momentum=0.95, ns_steps=5, beta2=0.95, weight_decay=weight_decay,
++                momentum=0.95, ns_steps=5, beta2=0.9, weight_decay=weight_decay,
+             ))
+         optimizer = MuonAdamW(param_groups)
+         for group in optimizer.param_groups:
+@@ -547,8 +547,8 @@ def get_lr_multiplier(progress):
+         return cooldown * 1.0 + (1 - cooldown) * FINAL_LR_FRAC
+ 
+ def get_muon_momentum(step):
+-    frac = min(step / 300, 1)
+-    return (1 - frac) * 0.85 + frac * 0.95
++    frac = min(step / 400, 1)
++    return (1 - frac) * 0.85 + frac * 0.97
+ 
+ def get_weight_decay(progress):
+     return WEIGHT_DECAY * (1 - progress)
