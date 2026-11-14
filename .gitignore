@@ -22,3 +22,5 @@ dev/
 # Results file
 results.tsv
 runs/
+gate1.log
+gate1_summary.txt
